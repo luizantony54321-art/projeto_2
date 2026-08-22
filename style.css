@@ -1,0 +1,982 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #312e81 0%,
+            #111827 35%,
+            #020617 80%
+        );
+
+    color: #f8fafc;
+
+    line-height: 1.7;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   CORES
+===================================================== */
+
+:root {
+
+    --roxo: #8b5cf6;
+
+    --roxo-claro: #a78bfa;
+
+    --roxo-escuro: #5b21b6;
+
+    --dourado: #fbbf24;
+
+    --dourado-claro: #fde68a;
+
+    --azul: #38bdf8;
+
+    --verde: #22c55e;
+
+    --vermelho: #ef4444;
+
+    --fundo: #020617;
+
+    --card: #111827;
+
+    --card-claro: #1e293b;
+
+    --borda: #334155;
+
+    --texto: #cbd5e1;
+
+    --texto-fraco: #94a3b8;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(139, 92, 246, 0.45),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(251, 191, 36, 0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #1e1b4b,
+            #111827,
+            #020617
+        );
+
+    border-bottom: 2px solid var(--roxo);
+}
+
+
+/* Brilho esquerdo */
+
+header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    background:
+        rgba(139, 92, 246, 0.15);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    top: -250px;
+
+    left: -150px;
+}
+
+
+/* Brilho direito */
+
+header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    background:
+        rgba(251, 191, 36, 0.08);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    right: -150px;
+
+    bottom: -250px;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+header h1 {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 60px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+
+    color: white;
+
+    text-shadow:
+
+        0 0 10px rgba(167, 139, 250, 0.8),
+
+        0 0 25px rgba(139, 92, 246, 0.7),
+
+        0 0 50px rgba(124, 58, 237, 0.4);
+
+    animation:
+        brilhoTitulo 3s ease-in-out infinite alternate;
+}
+
+
+header p {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: var(--dourado-claro);
+
+    font-size: 20px;
+
+    max-width: 700px;
+}
+
+
+/* =====================================================
+   ANIMAÇÃO DO TÍTULO
+===================================================== */
+
+@keyframes brilhoTitulo {
+
+    0% {
+
+        text-shadow:
+
+            0 0 10px rgba(139, 92, 246, 0.5),
+
+            0 0 20px rgba(139, 92, 246, 0.3);
+    }
+
+    100% {
+
+        text-shadow:
+
+            0 0 15px rgba(167, 139, 250, 0.9),
+
+            0 0 35px rgba(139, 92, 246, 0.7),
+
+            0 0 60px rgba(251, 191, 36, 0.2);
+    }
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    padding: 16px 10px;
+
+    text-align: center;
+
+    background:
+        rgba(2, 6, 23, 0.96);
+
+    border-bottom:
+        1px solid #312e81;
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+nav a {
+
+    display: inline-block;
+
+    color: #c4b5fd;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin: 0 10px;
+
+    padding: 7px;
+
+    transition: 0.3s;
+}
+
+
+nav a:hover {
+
+    color: var(--dourado);
+
+    transform: translateY(-3px);
+
+    text-shadow:
+        0 0 12px rgba(251, 191, 36, 0.7);
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 75px 20px;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+section {
+
+    margin-bottom: 75px;
+
+    animation:
+        aparecer 0.7s ease;
+}
+
+
+section h2 {
+
+    color: var(--dourado);
+
+    font-size: 35px;
+
+    margin-bottom: 25px;
+
+    padding-left: 15px;
+
+    border-left:
+        5px solid var(--roxo);
+
+    text-shadow:
+        0 0 10px rgba(251, 191, 36, 0.15);
+}
+
+
+section p {
+
+    color: var(--texto);
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro {
+
+    text-align: center;
+
+    max-width: 850px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+
+.intro h2 {
+
+    border-left: none;
+
+    padding-left: 0;
+
+    font-size: 42px;
+
+    color: var(--dourado);
+}
+
+
+.intro p {
+
+    color: var(--texto-fraco);
+
+    font-size: 18px;
+
+    margin: 12px auto;
+}
+
+
+/* =====================================================
+   GRID DE CARDS
+===================================================== */
+
+.games {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   CARD DE RPG
+===================================================== */
+
+.game {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 32px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(30, 41, 59, 0.95),
+            rgba(15, 23, 42, 0.98)
+        );
+
+    border:
+
+        1px solid var(--borda);
+
+    border-radius: 18px;
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(0, 0, 0, 0.4);
+
+    transition:
+        transform 0.3s,
+        border-color 0.3s,
+        box-shadow 0.3s;
+}
+
+
+/* Brilho interno */
+
+.game::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+    filter: blur(20px);
+
+    top: -80px;
+
+    right: -80px;
+
+    transition: 0.4s;
+}
+
+
+.game:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--roxo);
+
+    box-shadow:
+
+        0 18px 45px
+        rgba(124, 58, 237, 0.25);
+}
+
+
+.game:hover::before {
+
+    transform:
+        scale(1.7);
+}
+
+
+.game h3 {
+
+    position: relative;
+
+    color:
+        var(--roxo-claro);
+
+    font-size: 25px;
+
+    margin-bottom: 14px;
+}
+
+
+.game p {
+
+    position: relative;
+
+    color:
+        var(--texto-fraco);
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   CARDS DE EXPLICAÇÃO
+===================================================== */
+
+.tip {
+
+    position: relative;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #111827,
+            #0f172a
+        );
+
+    border:
+
+        1px solid var(--borda);
+
+    border-left:
+
+        5px solid var(--roxo);
+
+    border-radius: 13px;
+
+    padding: 28px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+
+        0 7px 25px
+        rgba(0, 0, 0, 0.3);
+
+    transition: 0.3s;
+}
+
+
+.tip:hover {
+
+    transform:
+        translateX(7px);
+
+    border-left-color:
+        var(--dourado);
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(139, 92, 246, 0.2);
+}
+
+
+.tip h3 {
+
+    color:
+        var(--dourado);
+
+    font-size: 23px;
+
+    margin-bottom: 10px;
+}
+
+
+.tip p {
+
+    color:
+        var(--texto);
+}
+
+
+/* =====================================================
+   ÁREA DE PROGRESSÃO
+===================================================== */
+
+.steps,
+.route {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #111827,
+            #0f172a
+        );
+
+    border:
+
+        1px solid #4338ca;
+
+    border-radius: 18px;
+
+    padding: 38px;
+
+    margin-top: 35px;
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(0, 0, 0, 0.4);
+}
+
+
+.steps h2,
+.route h2 {
+
+    margin-bottom: 25px;
+
+    border-left:
+        4px solid var(--dourado);
+}
+
+
+.steps ol,
+.route ol {
+
+    padding-left: 28px;
+}
+
+
+.steps li,
+.route li {
+
+    color:
+        var(--texto);
+
+    margin: 16px 0;
+
+    padding-left: 7px;
+
+    transition: 0.2s;
+}
+
+
+.steps li:hover,
+.route li:hover {
+
+    color:
+        white;
+
+    transform:
+        translateX(4px);
+}
+
+
+.steps li::marker,
+.route li::marker {
+
+    color:
+        var(--dourado);
+
+    font-weight:
+        bold;
+
+    font-size:
+        18px;
+}
+
+
+/* =====================================================
+   DESTAQUES
+===================================================== */
+
+strong {
+
+    color:
+        var(--dourado);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background:
+        #020617;
+
+    border-top:
+        1px solid #312e81;
+
+    text-align:
+        center;
+
+    padding:
+        40px 20px;
+
+    color:
+        #64748b;
+}
+
+
+footer p {
+
+    margin:
+        5px;
+}
+
+
+footer p:first-child {
+
+    color:
+        var(--roxo-claro);
+
+    font-weight:
+        bold;
+}
+
+
+/* =====================================================
+   ANIMAÇÃO DE ENTRADA
+===================================================== */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+
+    width:
+        10px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #020617;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #5b21b6;
+
+    border-radius:
+        10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        var(--roxo);
+}
+
+
+/* =====================================================
+   SELEÇÃO DE TEXTO
+===================================================== */
+
+::selection {
+
+    background:
+        var(--roxo);
+
+    color:
+        white;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE - TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    header h1 {
+
+        font-size:
+            45px;
+    }
+
+
+    .games {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .container {
+
+        padding:
+            55px 20px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE - CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+
+        min-height:
+            55vh;
+
+        padding:
+            45px 15px;
+    }
+
+
+    header h1 {
+
+        font-size:
+            34px;
+
+        letter-spacing:
+            1px;
+    }
+
+
+    header p {
+
+        font-size:
+            16px;
+    }
+
+
+    nav {
+
+        padding:
+            12px 5px;
+    }
+
+
+    nav a {
+
+        font-size:
+            11px;
+
+        margin:
+            0 3px;
+    }
+
+
+    .container {
+
+        padding:
+            45px 15px;
+    }
+
+
+    section h2 {
+
+        font-size:
+            27px;
+    }
+
+
+    .intro h2 {
+
+        font-size:
+            32px;
+    }
+
+
+    .intro p {
+
+        font-size:
+            16px;
+    }
+
+
+    .game {
+
+        padding:
+            24px;
+    }
+
+
+    .game h3 {
+
+        font-size:
+            22px;
+    }
+
+
+    .tip {
+
+        padding:
+            22px;
+    }
+
+
+    .tip h3 {
+
+        font-size:
+            20px;
+    }
+
+
+    .steps,
+    .route {
+
+        padding:
+            25px;
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES MUITO PEQUENOS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    header h1 {
+
+        font-size:
+            28px;
+    }
+
+
+    nav a {
+
+        font-size:
+            10px;
+
+        margin:
+            0 2px;
+    }
+
+
+    section h2 {
+
+        font-size:
+            24px;
+    }
+
+
+    .intro h2 {
+
+        font-size:
+            28px;
+    }
+
+}
